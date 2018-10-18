@@ -2,10 +2,12 @@ version: '3.1'
 
 services:
   generator:
-    image: my-registry:55000/gen:ci-12
+    image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-12}
   mail:
     image: mailhog/mailhog
   integration:
     build:
       context: .
-    image: my-registry:55000/gen:integration-12
+    image: my-registry:55000/gen:integration-${BUILD_NUMBER-12}
+    environment: 
+      - TEAMCITY_PROJECT_NAME
