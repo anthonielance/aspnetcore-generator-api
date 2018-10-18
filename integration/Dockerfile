@@ -5,4 +5,4 @@ COPY integration.csproj .
 RUN dotnet restore
 
 COPY . .
-ENTRYPOINT [ "dotnet", "test" ]
+ENTRYPOINT [ "dotnet", "test" , "--logger:'console;verbosity=normal'"]
