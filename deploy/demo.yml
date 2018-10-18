@@ -4,8 +4,8 @@ services:
   generator:
     image: my-registry:55000/gen:ci-${GENERATOR_BUILD_NUMBER-12}
     ports:
-      - "8070:80"
+      - "${PORT_GENERATOR-8080}:80"
   mail:
     image: mailhog/mailhog
     ports:
-      - "8071:8025"
+      - "${PORT_MAILHOG-8081}:8025"
