@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.3'
 
 services:
   generator:
@@ -10,3 +10,10 @@ services:
     image: nginx
     ports:
       - "${PORT_GENERATOR-80}:80"
+    configs:
+      - source: site.conf
+        target: /etc/nginx/conf.d/defaul.conf
+
+configs:
+  site.conf:
+    file: ./site.conf
